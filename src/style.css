@@ -31,6 +31,14 @@ html {
   justify-content: space-between;
 }
 
+.lists {
+  list-style: none;
+}
+
+.list {
+  font-size: 1.6rem;
+}
+
 .clear-container {
   padding: 1.6rem;
   display: flex;
