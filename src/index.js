@@ -1,14 +1,34 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const listsEl = document.querySelector('.lists');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'Amejid'], ' ');
-  element.classList.add('hello');
+const tasks = [
+  {
+    description: 'Visit friends',
+    completed: false,
+    index: 0,
+  },
+  {
+    description: 'Visit family',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Doctor appointment',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'Finish project',
+    completed: false,
+    index: 3,
+  },
+];
 
-  return element;
-}
+tasks.forEach((task) => {
+  const markup = `
+    <li class="list">${task.description}</>
+  `;
 
-document.body.appendChild(component());
+  listsEl.insertAdjacentHTML('beforeend', markup);
+});
