@@ -47,13 +47,19 @@ formEl.addEventListener('submit', (e) => {
 });
 
 listsEl.addEventListener('click', (e) => {
-  const clicked = e.target.closest('.check');
+  const clicked = e.target.closest('.remove');
   if (!clicked) return;
 
-  const listNum = clicked.dataset.btn;
+  const tasks = JSON.parse(localStorage.getItem('todos')) || [];
+  const listNum = +clicked.dataset.remove;
 
-  const listEl = document.querySelector(`.list-${listNum}`);
+  const tasksMod = tasks.filter((task) => task.index !== listNum);
+  let tasksModIndex = [];
+  tasksMod.forEach((task, ind) => {
+    task.index = ind;
+    tasksModIndex = [...tasksModIndex, task];
+  });
 
-  listEl.querySelector('.empty-check').classList.toggle('active');
-  listEl.querySelector('.checked').classList.toggle('active');
+  localStorage.setItem('todos', JSON.stringify(tasksModIndex));
+  renderTodo();
 });
