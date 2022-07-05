@@ -49,7 +49,7 @@ const addTodo = (e) => {
   renderTodo();
 };
 
-const removeTodo = (e) => {
+const updateTodo = (e) => {
   const clicked = e.target.closest('.todo');
   if (!clicked) return;
 
@@ -64,7 +64,7 @@ const removeTodo = (e) => {
   });
 };
 
-const updateTodo = (e) => {
+const removeTodo = (e) => {
   const clicked = e.target.closest('.remove');
   if (!clicked) return;
 
