@@ -12,6 +12,7 @@ const renderTodo = () => {
     const { completed } = task;
     const flag = !completed ? '' : 'active';
     const notComp = !completed ? 'active' : '';
+    const cross = completed ? 'cross' : '';
     const markup = `
       <li class="list list-${task.index}">
         <span class="list-left">
@@ -19,7 +20,7 @@ const renderTodo = () => {
             <span class="empty-check ${notComp}"><i class="fa-regular fa-square active"></i></span>
             <span class="checked ${flag}"><i class="fa-solid fa-check"></i></span>
           </button>
-          <input type="text" data-desc="${task.index}" class="todo" value="${task.description}"/>
+          <input type="text" data-desc="${task.index}" class="todo ${cross}" value="${task.description}"/>
         </span>
         <button class="btn remove" data-remove="${task.index}">
           <i class="fa-regular fa-trash-can"></i>

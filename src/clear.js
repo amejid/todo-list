@@ -8,6 +8,7 @@ export const markCompleted = (e) => {
 
   listEl.querySelector('.empty-check').classList.toggle('active');
   listEl.querySelector('.checked').classList.toggle('active');
+  listEl.querySelector('.todo').classList.toggle('cross');
 
   const tasks = JSON.parse(localStorage.getItem('todos')) || [];
 
