@@ -16,7 +16,7 @@ const renderTodo = () => {
             <span class="empty-check active"><i class="fa-regular fa-square active"></i></span>
             <span class="checked"><i class="fa-solid fa-check"></i></span>
           </button>
-          <input type="text" class="todo" value="${task.description}"/>
+          <input type="text" data-desc="${task.index}" class="todo" value="${task.description}"/>
         </span>
         <button class="btn remove" data-remove="${task.index}">
           <i class="fa-regular fa-trash-can"></i>
@@ -44,6 +44,21 @@ formEl.addEventListener('submit', (e) => {
   const tasksMod = [...tasks, task];
   localStorage.setItem('todos', JSON.stringify(tasksMod));
   renderTodo();
+});
+
+listsEl.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.todo');
+  if (!clicked) return;
+
+  clicked.addEventListener('keyup', () => {
+    const tasks = JSON.parse(localStorage.getItem('todos')) || [];
+    const listNum = +clicked.dataset.desc;
+
+    const task = tasks.find((task) => task.index === listNum);
+    task.description = clicked.value.trim();
+
+    localStorage.setItem('todos', JSON.stringify(tasks));
+  });
 });
 
 listsEl.addEventListener('click', (e) => {
