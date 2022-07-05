@@ -9,12 +9,15 @@ const renderTodo = () => {
   const tasksSorted = tasks.slice().sort((a, b) => a.index - b.index);
   listsEl.innerHTML = '';
   tasksSorted.forEach((task) => {
+    const { completed } = task;
+    const flag = !completed ? '' : 'active';
+    const notComp = !completed ? 'active' : '';
     const markup = `
       <li class="list list-${task.index}">
         <span class="list-left">
           <button class="btn check" data-btn="${task.index}">
-            <span class="empty-check active"><i class="fa-regular fa-square active"></i></span>
-            <span class="checked"><i class="fa-solid fa-check"></i></span>
+            <span class="empty-check ${notComp}"><i class="fa-regular fa-square active"></i></span>
+            <span class="checked ${flag}"><i class="fa-solid fa-check"></i></span>
           </button>
           <input type="text" data-desc="${task.index}" class="todo" value="${task.description}"/>
         </span>
@@ -28,7 +31,7 @@ const renderTodo = () => {
   });
 };
 
-formEl.addEventListener('submit', (e) => {
+const addTodo = (e) => {
   e.preventDefault();
   const tasks = JSON.parse(localStorage.getItem('todos')) || [];
   const toDo = todoInputEl.value.trim();
@@ -44,9 +47,9 @@ formEl.addEventListener('submit', (e) => {
   const tasksMod = [...tasks, task];
   localStorage.setItem('todos', JSON.stringify(tasksMod));
   renderTodo();
-});
+};
 
-listsEl.addEventListener('click', (e) => {
+const removeTodo = (e) => {
   const clicked = e.target.closest('.todo');
   if (!clicked) return;
 
@@ -59,9 +62,9 @@ listsEl.addEventListener('click', (e) => {
 
     localStorage.setItem('todos', JSON.stringify(tasks));
   });
-});
+};
 
-listsEl.addEventListener('click', (e) => {
+const updateTodo = (e) => {
   const clicked = e.target.closest('.remove');
   if (!clicked) return;
 
@@ -77,4 +80,10 @@ listsEl.addEventListener('click', (e) => {
 
   localStorage.setItem('todos', JSON.stringify(tasksModIndex));
   renderTodo();
-});
+};
+
+formEl.addEventListener('submit', addTodo);
+listsEl.addEventListener('click', removeTodo);
+listsEl.addEventListener('click', updateTodo);
+
+export default renderTodo;
