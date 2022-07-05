@@ -37,6 +37,15 @@ html {
 
 .list {
   font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .clear-container {
@@ -51,8 +60,10 @@ html {
   color: #454545;
 }
 
-.input-container input {
+.input-container input,
+.todo {
   border: none;
+  outline: none;
   font-size: 1.8rem;
   padding: 0.4rem;
 }
@@ -62,14 +73,43 @@ html {
   color: #cfcfcf;
 }
 
+.todo {
+  font-size: 1.6rem;
+}
+
+.list:focus-within,
+.todo:focus {
+  background-color: #ffff80;
+}
+
 .btn {
   cursor: pointer;
   background: none;
   border: none;
+  z-index: 99;
 }
 
 .btn-clear {
   color: #5c5c5c;
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+.empty-check,
+.checked {
+  display: none;
+}
+
+.fa-square,
+.fa-check {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.fa-check {
+  height: 1.6rem;
+}
+
+.active {
+  display: block;
 }
