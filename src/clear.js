@@ -15,3 +15,16 @@ export const markCompleted = (e) => {
   compTask.completed = !compTask.completed;
   localStorage.setItem('todos', JSON.stringify(tasks));
 };
+
+export const clearAll = () => {
+  const tasks = JSON.parse(localStorage.getItem('todos')) || [];
+  const remTasks = tasks.filter((task) => task.completed === false);
+
+  let tasksModIndex = [];
+  remTasks.forEach((task, ind) => {
+    task.index = ind;
+    tasksModIndex = [...tasksModIndex, task];
+  });
+
+  localStorage.setItem('todos', JSON.stringify(tasksModIndex));
+};
