@@ -9,6 +9,10 @@
 - Javascript
 - Webpack
 
+## Live Demo
+
+You can checkout the live version [here](https://amejid.github.io/todo-list/)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
