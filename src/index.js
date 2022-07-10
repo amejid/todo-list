@@ -11,7 +11,7 @@ const btnClearEl = document.querySelector('.btn-clear');
 
 window.addEventListener('load', renderTodo);
 
-listsEl.addEventListener('click', markCompleted);
+listsEl.addEventListener('change', markCompleted);
 btnClearEl.addEventListener('click', () => {
   clearAll();
   renderTodo();
