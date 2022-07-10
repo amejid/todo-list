@@ -95,25 +95,6 @@ html {
   font-weight: 700;
 }
 
-.empty-check,
-.checked {
-  display: none;
-}
-
-.fa-square,
-.fa-check {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.fa-check {
-  height: 1.6rem;
-}
-
-.active {
-  display: block;
-}
-
 .cross {
   text-decoration: line-through;
 }
