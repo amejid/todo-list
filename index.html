@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  <script defer src="/todo-list/runtime.bundle.js"></script><script defer src="/todo-list/index.bundle.js"></script><script defer src="/todo-list/crud.bundle.js"></script></head>
+  <body>
+    <div class="lists-container">
+      <div class="title-container">
+        <h2>Today's To Do</h2>
+        <button class="btn btn-refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
+      </div>
+      <form class="input-container" action="">
+        <input class="todo-input" type="text" placeholder="Add to your list..." />
+        <button type="submit" class="btn btn-enter">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+      </form>
+      <ul class="lists"></ul>
+      <div class="clear-container">
+        <button class="btn btn-clear">Clear all completed</button>
+      </div>
+    </div>
+  </body>
+</html>
